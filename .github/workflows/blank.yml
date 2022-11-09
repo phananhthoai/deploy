@@ -20,6 +20,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: sudo npm i
-      - run: sudo npm build
-      - run: sudo npm test
+      - run: npm i
+      - run: npm build
+      - run: npm test
