@@ -7,19 +7,22 @@ on:
   #   branches: [ main ]
 
 jobs:
-  build:
-    runs-on: self-hosted
 
+
+  example_matrix:
     strategy:
       matrix:
-        node-version: [14.x]
-
+        os: [windows-latest, ubuntu-latest]
+        node: [12, 14, 16]
+        include:
+          - os: windows-latest
+            node: 16
+            npm: 6
+    runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm i
-      - run: npm build
-      - run: npm test
+          node-version: ${{ matrix.node }}
+      - if: ${{ matrix.npm }}
+        run: npm install -g npm@${{ matrix.npm }}
+      - run: npm --version
