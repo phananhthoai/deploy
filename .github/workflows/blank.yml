@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: sudo chown -R $(whoami) ~/.npm
+      - run: chown -R $(whoami) ~/.npm
       - run: npm i
       - run: npm build
       - run: npm test
