@@ -1,19 +1,10 @@
 on:
-  push:
-    branches:
-      - main
-
+  pull_request:
+    types:
+      - opened
 jobs:
-  build:
+  run_if:
+    if:  startsWith(github.head_ref, 'releases/')
     runs-on: ubuntu-latest
     steps:
-      - name: build
-      - run: echo 'building'
-
-  publish:
-    needs: [build]
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: publish
-      - run: echo 'publishing'
+      - run: echo "The head of this PR starts with 'releases/'"
