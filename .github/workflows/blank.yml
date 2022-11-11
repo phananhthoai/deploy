@@ -14,3 +14,5 @@ jobs:
         run: terraform --version
       - name: Display Azure-CLI Version
         run: az --version
+      - name: Install Git
+        run: apt install git -y
