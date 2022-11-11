@@ -1,13 +1,19 @@
-name: Sample Python
-
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: |
-        python3 -m pip install --upgrade pip
-        pip3 install pytest
+      - name: build
+      - run: echo 'building'
+
+  publish:
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: publish
+      - run: echo 'publishing'
