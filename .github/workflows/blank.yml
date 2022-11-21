@@ -15,4 +15,4 @@ jobs:
       - name: Display Azure-CLI Version
         run: az --version
       - name: Install docker
-        run: apt install docker.io
+        run: sudo apt install docker.io
