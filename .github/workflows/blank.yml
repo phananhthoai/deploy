@@ -17,5 +17,5 @@ jobs:
         run: terraform --version
       - name: Display Azure-CLI Version
         run: az --version
-      - name: Install docker
-        run: sudo apt install docker.io
+      - name: update
+        run: apt update -y
