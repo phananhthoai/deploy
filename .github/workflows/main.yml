@@ -13,7 +13,5 @@ jobs:
           node-version: "14.x"
       - name: Install dependencies
         run: npm install
-      - name: Run server.js
-        run: PORT=3001 npm start
       - name: build docker
         run : docker build -t nodejs/v1 .
