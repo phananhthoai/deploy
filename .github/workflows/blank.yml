@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: [self-hosted, some-label]
+    runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -15,7 +15,7 @@ jobs:
         run: npm run build
 
   lint:
-    runs-on: [self-hosted, some-label]
+    runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -26,7 +26,7 @@ jobs:
         run: npm run lint
 
   test:
-    runs-on: [self-hosted, some-label]
+    runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -37,7 +37,7 @@ jobs:
         run: npm run test
 
   test_cov:
-    runs-on: [self-hosted, some-label]
+    runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -48,7 +48,7 @@ jobs:
         run: npm run test:cov
 
   test_e2e:
-    runs-on: [self-hosted, some-label]
+    runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -59,7 +59,7 @@ jobs:
         run: npm run test:e2e
 
   build_image:
-    runs-on: [self-hosted, some-label]
+    runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v3
       - name: Build Docker image
